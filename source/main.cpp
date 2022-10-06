@@ -1,6 +1,20 @@
 #include <iostream>
+#include "../headers/matrix.h"
+
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    int N;
+
+    std::cin >> N;
+
+    class matrixes::square_matrix<double> A(N);
+
+    for(int i = 0; i < N; ++i)
+        for(int j = 0; j < N; ++j)
+            std::cin >> A[i][j];
+
+    std::cout << A.det() << std::endl;
+
     return 0;
+    
 }
