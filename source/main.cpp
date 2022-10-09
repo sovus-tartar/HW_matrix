@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../headers/matrix.h"
+#include "../headers/matrix.hpp"
 
 
 int main() {

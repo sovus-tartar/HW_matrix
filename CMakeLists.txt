@@ -5,7 +5,7 @@ include(CTest)
 enable_testing()
 
 
-add_executable(HW_matrix source/main.cpp headers/matrix.h)
+add_executable(HW_matrix source/main.cpp headers/matrix.hpp)
 include(FetchContent)
 FetchContent_Declare(
   googletest

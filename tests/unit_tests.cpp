@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "../headers/matrix.h"
-
+#include <fstream>
+#include "../headers/matrix.hpp"
 
 TEST(matrix, sq_br_test1)
 {
@@ -94,8 +94,91 @@ TEST(matrix, det1)
     A[1][0] = 2;
     A[1][1] = 3;
 
-    EXPECT_EQ(A.det(), -2);
+    EXPECT_DOUBLE_EQ(A.det(), -2);
 }
+
+TEST(matrix, det2)
+{
+    std::ifstream file;
+
+    file.open("../tests/222.in");
+
+    int N;
+    file >> N;
+
+    matrixes::square_matrix<double> A(N);
+
+    for(int i = 0; i < N; ++i)
+        for(int j = 0; j < N; ++j)
+            file >> A[i][j];
+
+    double expected_det;
+
+    file >> expected_det;
+
+    file.close();
+    
+    EXPECT_NEAR(A.det(), expected_det, 1);
+}
+
+TEST(matrix, det3)
+{
+    std::ifstream file;
+
+    file.open("../tests/333.in");
+
+    int N;
+    file >> N;
+
+    matrixes::square_matrix<double> A(N);
+
+    for(int i = 0; i < N; ++i)
+        for(int j = 0; j < N; ++j)
+            file >> A[i][j];
+
+    double expected_det;
+
+    file >> expected_det;
+
+    file.close();
+    
+    EXPECT_NEAR(A.det(), expected_det, 1);
+}
+
+TEST(matrix, det4)
+{
+    std::ifstream file;
+
+    file.open("../tests/444.in");
+
+    int N;
+    file >> N;
+
+    matrixes::square_matrix<double> A(N);
+
+    for(int i = 0; i < N; ++i)
+        for(int j = 0; j < N; ++j)
+            file >> A[i][j];
+
+    double expected_det;
+
+    file >> expected_det;
+
+    file.close();
+    
+    EXPECT_NEAR(A.det(), expected_det, 1);
+}
+
+TEST(matrix, det5)
+{
+    matrixes::square_matrix<double> A(1);
+
+    A[0][0] = 13;
+
+
+    EXPECT_DOUBLE_EQ(A.det(), 13);
+}
+
 
 int main(int argc, char ** argv)
 {
