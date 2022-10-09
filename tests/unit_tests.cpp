@@ -95,6 +95,10 @@ TEST(matrix, det1)
     A[1][1] = 3;
 
     EXPECT_DOUBLE_EQ(A.det(), -2);
+    EXPECT_DOUBLE_EQ(A[0][0], 0);
+    EXPECT_DOUBLE_EQ(A[0][1], 1);
+    EXPECT_DOUBLE_EQ(A[1][0], 2);
+    EXPECT_DOUBLE_EQ(A[1][1], 3);
 }
 
 TEST(matrix, det2)
