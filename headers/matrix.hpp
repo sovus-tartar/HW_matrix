@@ -3,6 +3,8 @@
 #include <vector>
 #include <cassert>
 #include <cstring>
+#include <iomanip>
+#include <iostream>
 // TODO: методы присвоения, и проч
 // TODO: тип данных чтобы был str и поинтер на этот типа массив, аналогично с row. т.о. достигается swap str за о(1)
 namespace matrixes
@@ -197,6 +199,8 @@ namespace matrixes
 
                 max_submatrix_element(i, pivot, line, collumn);
 
+                //print_matrix();
+
                 if (is_equal(pivot, 0))
                     return 0;
 
@@ -218,18 +222,23 @@ namespace matrixes
             for (int i = 1; i < size_; ++i)
                 determinant *= (*this)[i][i];
 
+            //print_matrix();
+
             return (sign % 2) ? -determinant : determinant;
         }
 
         void print_matrix()
         {
+
             for (int i = 0; i < size_; ++i)
             {
                 for (int j = 0; j < size_; ++j)
-                    std::cout << arr[i][j] << " ";
+                    std::cout << "|" << std::setw(6) << std::setprecision(1) << (*this)[i][j] << "| ";
 
                 std::cout << std::endl;
             }
+
+            std::cout << "------------------------------------------" << std::endl;
         }
     };
 

@@ -183,6 +183,54 @@ TEST(matrix, det5)
     EXPECT_DOUBLE_EQ(A.det(), 13);
 }
 
+TEST(matrix, det6)
+{
+    std::ifstream file;
+
+    file.open("../tests/555.in");
+
+    int N;
+    file >> N;
+
+    matrixes::square_matrix<double> A(N);
+
+    for(int i = 0; i < N; ++i)
+        for(int j = 0; j < N; ++j)
+            file >> A[i][j];
+
+    double expected_det;
+
+    file >> expected_det;
+
+    file.close();
+    
+    EXPECT_NEAR(A.det(), expected_det, 1);
+}
+
+TEST(matrix, det7)
+{
+    std::ifstream file;
+
+    file.open("../tests/666.in");
+
+    int N;
+    file >> N;
+
+    matrixes::square_matrix<double> A(N);
+
+    for(int i = 0; i < N; ++i)
+        for(int j = 0; j < N; ++j)
+            file >> A[i][j];
+
+    double expected_det;
+
+    file >> expected_det;
+
+    file.close();
+    
+    EXPECT_NEAR(A.det(), expected_det, 1);
+}
+
 
 int main(int argc, char ** argv)
 {

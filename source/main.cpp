@@ -13,6 +13,7 @@ int main() {
         for(int j = 0; j < N; ++j)
             std::cin >> A[i][j];
 
+
     std::cout << A.det() << std::endl;
 
     return 0;
